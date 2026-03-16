@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Meghan</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    body {
+      overflow: hidden;
+      height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(120, 119, 255, 0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(103, 58, 183, 0.35), transparent 35%),
+        linear-gradient(135deg, #0f1020, #1b1f4b, #4b2e83, #6a4cff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(130, 110, 255, 0.25), transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    .center-box {
+      position: absolute;
+      z-index: 10;
+      text-align: center;
+      color: white;
+      padding: 30px 40px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .center-box h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #9fd3ff, #c7a6ff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulseText 2.2s ease-in-out infinite;
+    }
+
+    .center-box p {
+      font-size: 1.05rem;
+      color: #e7dcff;
+      letter-spacing: 1px;
+    }
+
+    .floating-text {
+      position: absolute;
+      color: #ffffff;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      text-shadow:
+        0 0 8px rgba(155, 180, 255, 0.9),
+        0 0 18px rgba(157, 78, 221, 0.6);
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.8) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.15) rotate(6deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulseText {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.07);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.18);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+
+  <div class="center-box">
+    <h1>For Meghan 💜💙</h1>
+    <p>You're so very beautiful</p>
+  </div>
+
+  <script>
+    const total = 500;
+    const message = "You're so very beautiful Meghan 💜💙";
+
+    for (let i = 0; i < total; i++) {
+      const text = document.createElement("div");
+      text.className = "floating-text";
+      text.innerText = message;
+
+      text.style.left = Math.random() * 100 + "vw";
+      text.style.top = Math.random() * 100 + "vh";
+      text.style.fontSize = (12 + Math.random() * 18) + "px";
+      text.style.animationDuration = (5 + Math.random() * 5) + "s";
+      text.style.animationDelay = (Math.random() * 6) + "s";
+
+      document.body.appendChild(text);
+    }
+  </script>
+</body>
+</html>
